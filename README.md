@@ -265,13 +265,21 @@ Example validation response:
 
 This diagram shows how a request moves from the dashboard or Postman through Express middleware, routes, validation, controllers, the storage service, and `data/students.json`, before returning a JSON response.
 
+### Login page
+
+![Student API login page](docs/screenshots/login-page.png)
+
+### Student operations page
+
+![Student operations page](docs/screenshots/student-operations.png)
+
 ### Screenshots to add during demonstration
 
 For the final academic report, add these screenshots to `docs/screenshots/` after running the project:
 
 1. `login-page.png` — Login screen with the demo credentials.
-2. `dashboard.png` — Dashboard showing student totals and recent records.
-3. `student-operations.png` — Student list and add-student form.
+2. `student-operations.png` — Student list and add-student form.
+3. `dashboard.png` — Dashboard showing student totals and recent records.
 4. `postman-run-results.png` — Postman collection run showing the request results.
 5. `validation-error.png` — Postman validation response with the errors array.
 
@@ -424,13 +432,13 @@ The project does not include authentication, role-based access, a production dat
 
 ## Academic submission checklist
 
-- [ ] Run `npm install`.
-- [ ] Create `.env` from `.env.example`.
-- [ ] Start the server with `npm start`.
-- [ ] Demonstrate the dashboard.
-- [ ] Demonstrate CRUD operations in Postman.
-- [ ] Demonstrate validation and negative cases.
-- [ ] Include this README with the project.
+- [x] Run `npm install`.
+- [x] Create `.env` from `.env.example`.
+- [x] Start the server with `npm start`.
+- [x] Demonstrate the dashboard.
+- [x] Demonstrate CRUD operations in Postman.
+- [x] Demonstrate validation and negative cases.
+- [x] Include this README with the project.
 
 ## Conclusion
 
