@@ -257,6 +257,32 @@ Example validation response:
 
 ## Architecture and data flow
 
+## Project screenshots and diagrams
+
+### Layered request flow
+
+![Student REST API layered request flow](docs/screenshots/layered-request-flow.png)
+
+This diagram shows how a request moves from the dashboard or Postman through Express middleware, routes, validation, controllers, the storage service, and `data/students.json`, before returning a JSON response.
+
+### Screenshots to add during demonstration
+
+For the final academic report, add these screenshots to `docs/screenshots/` after running the project:
+
+1. `login-page.png` — Login screen with the demo credentials.
+2. `dashboard.png` — Dashboard showing student totals and recent records.
+3. `student-operations.png` — Student list and add-student form.
+4. `postman-run-results.png` — Postman collection run showing the request results.
+5. `validation-error.png` — Postman validation response with the errors array.
+
+Use this Markdown format when adding them:
+
+```markdown
+![Dashboard](docs/screenshots/dashboard.png)
+![Student operations](docs/screenshots/student-operations.png)
+![Postman run results](docs/screenshots/postman-run-results.png)
+```
+
 ```mermaid
 flowchart LR
   Client[Postman or Dashboard] --> Server[Express server]
