@@ -1,0 +1,20 @@
+{
+  "info": { "name": "Student REST API", "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json" },
+  "variable": [{ "key": "baseUrl", "value": "http://localhost:3000/api" }, { "key": "studentId", "value": "STU-1003" }],
+  "item": [
+    { "name": "Health check", "request": { "method": "GET", "url": "{{baseUrl}}/health" } },
+    { "name": "Dashboard statistics", "request": { "method": "GET", "url": "{{baseUrl}}/stats" } },
+    { "name": "Get all students", "request": { "method": "GET", "url": "{{baseUrl}}/students" } },
+    { "name": "Search students", "request": { "method": "GET", "url": "{{baseUrl}}/students?search=rahul" } },
+    { "name": "Filter by course", "request": { "method": "GET", "url": "{{baseUrl}}/students?course=CSE" } },
+    { "name": "Get student by ID", "request": { "method": "GET", "url": "{{baseUrl}}/students/{{studentId}}" } },
+    { "name": "Create student", "request": { "method": "POST", "header": [{ "key": "Content-Type", "value": "application/json" }], "body": { "mode": "raw", "raw": "{\n  \"fullName\": \"Priya Singh\",\n  \"age\": 20,\n  \"email\": \"priya.singh@example.com\",\n  \"course\": \"CSE\",\n  \"semester\": 5,\n  \"phone\": \"9988776655\"\n}" }, "url": "{{baseUrl}}/students" } },
+    { "name": "Update student", "request": { "method": "PUT", "header": [{ "key": "Content-Type", "value": "application/json" }], "body": { "mode": "raw", "raw": "{\n  \"fullName\": \"Rahul Sharma Updated\",\n  \"age\": 21,\n  \"email\": \"rahul.sharma@example.com\",\n  \"course\": \"CSE\",\n  \"semester\": 6,\n  \"phone\": \"9876543210\"\n}" }, "url": "{{baseUrl}}/students/{{studentId}}" } },
+    { "name": "Delete student", "request": { "method": "DELETE", "url": "{{baseUrl}}/students/{{studentId}}" } },
+    { "name": "Negative - missing fields", "request": { "method": "POST", "header": [{ "key": "Content-Type", "value": "application/json" }], "body": { "mode": "raw", "raw": "{ \"fullName\": \"Incomplete Student\" }" }, "url": "{{baseUrl}}/students" } },
+    { "name": "Negative - invalid email", "request": { "method": "POST", "header": [{ "key": "Content-Type", "value": "application/json" }], "body": { "mode": "raw", "raw": "{ \"fullName\": \"Invalid Email\", \"age\": 20, \"email\": \"not-an-email\", \"course\": \"CSE\", \"semester\": 5, \"phone\": \"9876543210\" }" }, "url": "{{baseUrl}}/students" } },
+    { "name": "Negative - duplicate email", "request": { "method": "POST", "header": [{ "key": "Content-Type", "value": "application/json" }], "body": { "mode": "raw", "raw": "{ \"fullName\": \"Duplicate Email\", \"age\": 20, \"email\": \"ananya@gmail.com\", \"course\": \"CSE\", \"semester\": 5, \"phone\": \"9876543211\" }" }, "url": "{{baseUrl}}/students" } },
+    { "name": "Negative - nonexistent ID", "request": { "method": "GET", "url": "{{baseUrl}}/students/STU-9999" } },
+    { "name": "Negative - invalid ID format", "request": { "method": "GET", "url": "{{baseUrl}}/students/wrong-id" } }
+  ]
+}

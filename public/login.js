@@ -1,0 +1,3 @@
+const loginForm = document.getElementById('loginForm');
+const loginNotice = document.getElementById('loginNotice');
+loginForm.addEventListener('submit', (event) => { event.preventDefault(); const username = document.getElementById('username').value.trim(); const password = document.getElementById('password').value; if (username === 'admin' && password === 'admin123') { sessionStorage.setItem('studentApiLoggedIn', 'true'); sessionStorage.setItem('studentApiUser', username); window.location.replace('/index.html'); } else { loginNotice.textContent = 'Invalid username or password.'; loginNotice.className = 'login-notice error'; } });

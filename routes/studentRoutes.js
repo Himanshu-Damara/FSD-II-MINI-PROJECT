@@ -1,0 +1,10 @@
+const router = require('express').Router();
+const controller = require('../controllers/studentController');
+const validateStudent = require('../middleware/validateStudent');
+const validId = (req, res, next) => /^STU-[A-Z0-9]+$/i.test(req.params.id) ? next() : res.status(400).json({ success: false, message: 'Invalid student ID format' });
+router.get('/', controller.getStudents);
+router.get('/:id', validId, controller.getStudent);
+router.post('/', validateStudent(), controller.createStudent);
+router.put('/:id', validId, validateStudent(), controller.updateStudent);
+router.delete('/:id', validId, controller.deleteStudent);
+module.exports = router;
